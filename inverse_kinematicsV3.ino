@@ -30,15 +30,17 @@ int main(void)
   int xvals[] = {80, 100, 120};
   int yvals[] = {100, 100, 100};
   rad_conv = 57.296;
+  int alen;
+  alen = sizeof(xvals)/sizeof(xvals[0]);
 
   printf("x1_deg\t x1_rad\t x2_deg\t x2_rad\n");
-  for (i = 0; i <3 ; i++)
+  for (i = 0; i <alen ; i++)
   {
     x = xvals[i];
     y = yvals[i];
     ik_calc(x, y, &theta1, &theta2);
 
 
-    printf("%f\t %f\t %f\t %f\n", (theta1 * rad_conv) - 50, theta1, (theta2 * rad_conv) + 40, theta2);
+    printf("%f\t %f\t %f\t %f\n", (theta1 * rad_conv) - 50, theta1, 180 - (theta2 * rad_conv), theta2);
   }
 }
